@@ -9,7 +9,7 @@ function populatePage (inventory) {
 		if(i%3 === 0){
 			inventoryString +=`<div class="row">`;
 		}
-		inventoryString += `<div id="car-card" class="col-md-4">`;
+		inventoryString += `<div id="car-card-${[i]}" class="col-md-4 cardBorder">`;
 		inventoryString += `${inventory[i].make}<br/>`;
 		inventoryString += `${inventory[i].model}<br/>`;
 		inventoryString += `${inventory[i].year}<br/>`;
@@ -22,12 +22,23 @@ function populatePage (inventory) {
 
 	};
 
-	Insert.innerHTML = inventoryString;
+	Insert.innerHTML += inventoryString;
   // Now that the DOM is loaded, establish all the event listeners needed
   // CarLot.activateEvents();
+  document.getElementById('load-inventory').addEventListener("click",function(e){
+  	console.log(e.target.classList);
+	if (e.target.classList.value !== "container"){
+	document.getElementById(e.target.id).style.border = "5px dashed black";
+	document.getElementById(e.target.id).style.backgroundColor = "lightyellow";
+	document.getElementById('search-input').value = "";
+	document.getElementById('search-input').focus();
+	}
+});
 }
-CarLot.loadInventory(populatePage);
+
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
-CarLot.loadInventory();
+CarLot.loadInventory(populatePage);
+
+
