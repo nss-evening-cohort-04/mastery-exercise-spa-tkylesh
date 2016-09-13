@@ -25,8 +25,6 @@ function populatePage (inventory) {
 	Insert.innerHTML += inventoryString;
   // Now that the DOM is loaded, establish all the event listeners needed
   CarLot.activateEvents();
-
-});
 }
 
 

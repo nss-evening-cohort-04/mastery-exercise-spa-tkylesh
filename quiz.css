@@ -1,3 +1,6 @@
 .cardBorder{
 	border: black dashed 2px;
 }
+.triggered{
+	border: dodgerblue dashed 5px;
+}
