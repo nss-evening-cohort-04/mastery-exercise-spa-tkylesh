@@ -2,5 +2,11 @@
 	border: black dashed 2px;
 }
 .triggered{
-	border: dodgerblue dashed 5px;
+	border: lime dashed 5px;
+}
+.triggeredColor{
+	background-color: lightyellow;
+}
+div.col-md-4:hover{
+	cursor: pointer;
 }

@@ -21,11 +21,10 @@ var CarLot = (function(){
 				inventory = data.cars;
 				callback(inventory);	
 			});
+		},
+		getInventory: function(){
+			return inventory;
 		}
-
-
-
-
 	};
 
 })();
