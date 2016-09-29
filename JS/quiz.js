@@ -38,6 +38,7 @@ document.getElementById('submitBtn').addEventListener("keydown",function(e){
 	var x = document.getElementsByClassName("triggered")[0];
 	console.log(e.keyCode);
 	if(e.keyCode === 13){
+		e.preventDefault();
 		x.lastChild.innerHTML= document.getElementById("search-input").value;
 	}
 
