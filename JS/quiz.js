@@ -27,21 +27,35 @@ function populatePage (inventory) {
   CarLot.activateEvents();
 }
 
-document.getElementById('search-input').addEventListener("keydown",function(){
+document.getElementById('search-input').addEventListener("keyup",function(){
 	var x = document.getElementsByClassName("triggered")[0];
 	console.log(x);
 	console.log(x.lastChild);
 	x.lastChild.innerHTML= document.getElementById("search-input").value;
 });
 
-document.getElementById('submitBtn').addEventListener("keydown",function(e){
+document.getElementById('search-input').addEventListener("keydown",function(e){
 	var x = document.getElementsByClassName("triggered")[0];
 	console.log(e.keyCode);
 	if(e.keyCode === 13){
 		e.preventDefault();
 		x.lastChild.innerHTML= document.getElementById("search-input").value;
+		document.getElementById("search-input").innerHTML='';
+		document.getElementById("search-input").blur();
+		x.classList.toggle("triggered");
+		x.classList.toggle("triggeredColor");
 	}
 
+});
+
+document.getElementById('submitBtn').addEventListener("click", function(){
+	var x = document.getElementsByClassName("triggered")[0];
+	x.lastChild.innerHTML = document.getElementById('search-input').value;
+	document.getElementById("search-input").innerHTML='';
+	document.getElementById("search-input").blur();
+	x.classList.toggle("triggered");
+	x.classList.toggle("triggeredColor");
+	
 });
 
 // Load the inventory and send a callback function to be
