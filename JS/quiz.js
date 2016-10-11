@@ -25,36 +25,8 @@ function populatePage (inventory) {
 	Insert.innerHTML += inventoryString;
   // Now that the DOM is loaded, establish all the event listeners needed
   CarLot.activateEvents();
+  CarLot.textInputEvents();
 }
-
-document.getElementById('search-input').addEventListener("keyup",function(){
-	var x = document.getElementsByClassName("triggered")[0];
-
-	x.lastChild.innerHTML= document.getElementById("search-input").value;
-});
-
-document.getElementById('search-input').addEventListener("keydown",function(e){
-	var x = document.getElementsByClassName("triggered")[0];
-	if(e.keyCode === 13){
-		// e.preventDefault();
-		x.lastChild.innerHTML= document.getElementById("search-input").value;
-		document.getElementById("search-input").value='';
-		document.getElementById("search-input").blur();
-		x.classList.toggle("triggered");
-		x.classList.toggle("triggeredColor");
-	}
-
-});
-
-document.getElementById('submitBtn').addEventListener("click", function(){
-	var x = document.getElementsByClassName("triggered")[0];
-	x.lastChild.innerHTML = document.getElementById('search-input').value;
-	document.getElementById("search-input").value="";
-	document.getElementById("search-input").blur();
-	x.classList.toggle("triggered");
-	x.classList.toggle("triggeredColor");
-	
-});
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
