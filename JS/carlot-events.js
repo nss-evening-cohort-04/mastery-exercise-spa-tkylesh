@@ -8,7 +8,11 @@ var CarLot = (function(newCarLot) {
             //8) When you click on one of the car elements, change the width of the border to a higher value,
             // and change the background color to any other color of your choosing.
             addListener[i].addEventListener("click",function(e){
-
+                    var allCards = document.getElementsByClassName('col-md-4');
+                    for (var i = 0; i < allCards.length; i++){      
+                            document.getElementById(allCards[i].id).classList.remove("triggered");
+                            document.getElementById(allCards[i].id).classList.remove("triggeredColor");
+                    }   
                 if (e.target.classList.contains('col-md-4')){
                     document.getElementById(e.target.id).classList.toggle("triggered");
                     document.getElementById(e.target.id).classList.toggle("triggeredColor");
@@ -16,13 +20,15 @@ var CarLot = (function(newCarLot) {
                     document.getElementById("search-input").value = "";
                     document.getElementById("search-input").focus();
                 }
-                    var allCards = document.getElementsByClassName('col-md-4');
-                    for (var i = 0; i < allCards.length; i++){
-                         if(allCards[i].id != e.target.id){
-                            document.getElementById(allCards[i].id).classList.remove("triggered");
-                            document.getElementById(allCards[i].id).classList.remove("triggeredColor");
-                         }
-                    }                  
+                
+                //commented out code makes the triggered class go away when clicked again
+                    // var allCards = document.getElementsByClassName('col-md-4');
+                    // for (var i = 0; i < allCards.length; i++){
+                    //      if(allCards[i].id != e.target.id){
+                    //         document.getElementById(allCards[i].id).classList.remove("triggered");
+                    //         document.getElementById(allCards[i].id).classList.remove("triggeredColor");
+                    //      }
+                    // }                  
             });
 
 
