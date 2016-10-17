@@ -1,0 +1,12 @@
+.cardBorder{
+	border: black dashed 2px;
+}
+.triggered{
+	border: lime dashed 5px;
+}
+.triggeredColor{
+	background-color: lightyellow;
+}
+div.col-md-4:hover{
+	cursor: pointer;
+}
